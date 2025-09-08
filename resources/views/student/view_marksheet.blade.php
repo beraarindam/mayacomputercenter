@@ -57,33 +57,38 @@
                 <table class="table table-borderless">
                     <tr>
                         <td><strong>Course Name:</strong></td>
-                        <td>{{ $data->c_full_name }} ({{ $data->c_short_name }})</td>
+                        <td>{{ $data->c_full_name ?? '' }} ({{ $data->c_short_name ?? '' }})</td>
                         <td><strong>Reg. No:</strong></td>
-                        <td>{{ $data->sl_reg_no }}</td>
+                        <td>{{ $data->sl_reg_no ?? '' }}</td>
                     </tr>
                     <tr>
                         <td><strong>Student Name:</strong></td>
-                        <td>{{ $data->sl_name }}</td>
+                        <td>{{ $data->sl_name ?? '' }}</td>
                         <td><strong>Center Code:</strong></td>
-                        <td>{{ $data->cl_code }}</td>
+                        <td>{{ $data->cl_code ?? '' }}</td>
                     </tr>
                     <tr>
                         <td><strong>Mother's Name:</strong></td>
-                        <td>{{ $data->sl_mother_name }}</td>
+                        <td>{{ $data->sl_mother_name ?? '' }}</td>
                         <td><strong>Center Name:</strong></td>
-                        <td>{{ $data->cl_center_name }}</td>
+                        <td>{{ $data->cl_center_name ?? '' }}</td>
                     </tr>
                     <tr>
                         <td><strong>Father's Name:</strong></td>
-                        <td>{{ $data->sl_father_name }}</td>
+                        <td>{{ $data->sl_father_name ?? '' }}</td>
                         <td><strong>Center Address:</strong></td>
-                        <td>{{ $data->cl_center_address }}</td>
+                        <td>{{ $data->cl_center_address ?? '' }}</td>
                     </tr>
                 </table>
             </div>
             <div class="col-md-3 text-center">
-                <img src="{{ asset('center/student_doc/'.$data->sl_photo) }}" 
-                     alt="Student Photo" class="student-photo" width="120" height="140">
+                @if(!empty($data->sl_photo))
+                    <img src="{{ asset('center/student_doc/'.$data->sl_photo) }}" 
+                         alt="Student Photo" class="student-photo" width="120" height="140">
+                @else
+                    <img src="{{ asset('default-avatar.png') }}" 
+                         alt="No Photo" class="student-photo" width="120" height="140">
+                @endif
             </div>
         </div>
 
@@ -99,34 +104,34 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ $data->sr_written }}</td>
-                        <td>{{ $data->sr_wr_full_marks }}</td>
-                        <td>{{ $data->sr_wr_pass_marks }}</td>
-                        <td>{{ $data->sr_wr_marks_obtained }}</td>
+                        <td>{{ $data->sr_written ?? '' }}</td>
+                        <td>{{ $data->sr_wr_full_marks ?? '' }}</td>
+                        <td>{{ $data->sr_wr_pass_marks ?? '' }}</td>
+                        <td>{{ $data->sr_wr_marks_obtained ?? '' }}</td>
                     </tr>
                     <tr>
-                        <td>{{ $data->sr_practical }}</td>
-                        <td>{{ $data->sr_pr_full_marks }}</td>
-                        <td>{{ $data->sr_pr_pass_marks }}</td>
-                        <td>{{ $data->sr_pr_marks_obtained }}</td>
+                        <td>{{ $data->sr_practical ?? '' }}</td>
+                        <td>{{ $data->sr_pr_full_marks ?? '' }}</td>
+                        <td>{{ $data->sr_pr_pass_marks ?? '' }}</td>
+                        <td>{{ $data->sr_pr_marks_obtained ?? '' }}</td>
                     </tr>
                     <tr>
-                        <td>{{ $data->sr_project }}</td>
-                        <td>{{ $data->sr_ap_full_marks }}</td>
-                        <td>{{ $data->sr_ap_pass_marks }}</td>
-                        <td>{{ $data->sr_ap_marks_obtained }}</td>
+                        <td>{{ $data->sr_project ?? '' }}</td>
+                        <td>{{ $data->sr_ap_full_marks ?? '' }}</td>
+                        <td>{{ $data->sr_ap_pass_marks ?? '' }}</td>
+                        <td>{{ $data->sr_ap_marks_obtained ?? '' }}</td>
                     </tr>
                     <tr>
-                        <td>{{ $data->sr_viva }}</td>
-                        <td>{{ $data->sr_vv_full_marks }}</td>
-                        <td>{{ $data->sr_vv_pass_marks }}</td>
-                        <td>{{ $data->sr_vv_marks_obtained }}</td>
+                        <td>{{ $data->sr_viva ?? '' }}</td>
+                        <td>{{ $data->sr_vv_full_marks ?? '' }}</td>
+                        <td>{{ $data->sr_vv_pass_marks ?? '' }}</td>
+                        <td>{{ $data->sr_vv_marks_obtained ?? '' }}</td>
                     </tr>
                     <tr class="fw-bold table-secondary">
                         <td>Total</td>
-                        <td>{{ $data->sr_total_full_marks }}</td>
-                        <td>{{ $data->sr_total_pass_marks }}</td>
-                        <td>{{ $data->sr_total_marks_obtained }}</td>
+                        <td>{{ $data->sr_total_full_marks ?? '' }}</td>
+                        <td>{{ $data->sr_total_pass_marks ?? '' }}</td>
+                        <td>{{ $data->sr_total_marks_obtained ?? '' }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -134,10 +139,10 @@
 
         <div class="d-flex justify-content-between align-items-center mt-3">
             <div class="grade-box">
-                Percentage: {{ $data->sr_percentage }}%
+                Percentage: {{ $data->sr_percentage ?? 'N/A' }}%
             </div>
             <div class="grade-box">
-                Grade: {{ $data->sr_grade }}
+                Grade: {{ $data->sr_grade ?? 'N/A' }}
             </div>
         </div>
 
@@ -149,4 +154,5 @@
         </div>
     </div>
 </div>
+
 @endsection

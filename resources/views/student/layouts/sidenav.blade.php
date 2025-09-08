@@ -69,7 +69,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('view_marksheet') }}" class="nav-link">
             <span class="sidebar-icon"><i class="fa-solid fa-file-lines"></i></span>
             <span class="sidebar-text">View Marksheet</span>
         </a>

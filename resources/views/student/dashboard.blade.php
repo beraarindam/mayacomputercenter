@@ -84,7 +84,7 @@ body {
 <div class="row mt-4 mb-4">
     <div class="col-12">
         <div class="card border-0 shadow-sm p-4 bg-primary text-white rounded-3">
-            <h2 class="fw-bold mb-1">👋 Welcome back, {{ Auth::user()->name ?? 'Admin' }}!</h2>
+            <h2 class="fw-bold mb-1">👋 Welcome back, {{ Auth::user()->sl_name ?? 'Admin' }}!</h2>
             <p class="mb-0">Here’s a quick overview of your account at Maya Computer Center.</p>
         </div>
     </div>

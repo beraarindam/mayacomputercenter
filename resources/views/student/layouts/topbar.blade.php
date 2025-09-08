@@ -33,11 +33,11 @@
              aria-expanded="false">
             <div class="media d-flex align-items-center">
               <img class="avatar rounded-circle" alt="User Avatar"
-                   src="https://lh4.googleusercontent.com/proxy/ElNJBofC5Bx_BPHcyLtNKL6tb90TKY0O1RzSW4i8UB7ZzuVGqitPVR43wJbwCxCPwaNPCTmNhsp3PTEXaza1NivZS2LdfGHBqqDfmInrTtO_K1g8">
+                   src="{{asset('storage/'). auth()->user()->sl_photo}}">
               <div class="media-body ms-2 d-none d-lg-block">
                 <span class="mb-0 fw-bold text-gray-900">
-                  @if(auth()->user() && auth()->user()->first_name)
-                    {{ auth()->user()->first_name }} {{ auth()->user()->last_name ?? '' }}
+                  @if(auth()->user() && auth()->user()->sl_name)
+                    {{ auth()->user()->sl_name }}
                   @else
                     User Name
                   @endif
@@ -47,8 +47,12 @@
           </a>
           <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
             <div role="separator" class="dropdown-divider my-1"></div>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-              <livewire:logout />
+            <!-- <a class="dropdown-item d-flex align-items-center" href="{{ route('admin_change_password') }}">
+                <i class="fas fa-key me-2"></i> Change Password
+            </a> -->
+
+            <a class="dropdown-item d-flex align-items-center" href="{{ route('student_logout') }}">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
             </a>
           </div>
         </li>
