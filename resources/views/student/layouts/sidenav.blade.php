@@ -48,25 +48,95 @@
       </li>
 
       <li class="nav-item">
-    <a href="{{ route('view_marksheet') }}" class="nav-link">
-        <span class="sidebar-icon"><i class="fa-solid fa-file-lines"></i></span>
-        <span class="sidebar-text">View Marksheet</span>
-    </a>
-</li>
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-address-card"></i></span>
+            <span class="sidebar-text">Registration Card</span>
+        </a>
+      </li>
 
-<li class="nav-item">
-    <a href="{{ route('view_id_card') }}" class="nav-link">
-        <span class="sidebar-icon"><i class="fa-solid fa-id-card"></i></span>
-        <span class="sidebar-text">View ID Card</span>
-    </a>
-</li>
+      <li class="nav-item">
+        <a href="{{ route('view_id_card') }}" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-id-card"></i></span>
+            <span class="sidebar-text">View ID Card</span>
+        </a>
+      </li>
 
-<li class="nav-item">
-    <a href="{{ route('view_payment') }}" class="nav-link">
-        <span class="sidebar-icon"><i class="fa-solid fa-credit-card"></i></span>
-        <span class="sidebar-text">View Payment</span>
-    </a>
-</li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-ticket"></i></span>
+            <span class="sidebar-text">Admit Card</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-file-lines"></i></span>
+            <span class="sidebar-text">View Marksheet</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-certificate"></i></span>
+            <span class="sidebar-text">Certificate</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          data-bs-target="#submenu-study" aria-expanded="false">
+          <span>
+            <span class="sidebar-icon"><i class="fa-solid fa-book-open"></i></span>
+            <span class="sidebar-text">Study Material</span>
+          </span>
+          <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+        </span>
+        <div class="multi-level collapse" role="list" id="submenu-study" aria-expanded="false">
+          <ul class="flex-column nav">
+            <li class="nav-item"><a href="#" class="nav-link"><span class="sidebar-icon"><i class="fa-solid fa-file-pdf"></i></span> <span class="sidebar-text">PDF</span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="sidebar-icon"><i class="fa-solid fa-video"></i></span> <span class="sidebar-text">Videos</span></a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-laptop-code"></i></span>
+            <span class="sidebar-text">Online Test Practice</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-pen-to-square"></i></span>
+            <span class="sidebar-text">Final Exam</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('view_payment') }}" class="nav-link">
+            <span class="sidebar-icon"><i class="fa-solid fa-credit-card"></i></span>
+            <span class="sidebar-text">View Payment History</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          data-bs-target="#submenu-support" aria-expanded="false">
+          <span>
+            <span class="sidebar-icon"><i class="fa-solid fa-headset"></i></span>
+            <span class="sidebar-text">Support</span>
+          </span>
+          <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+        </span>
+        <div class="multi-level collapse" role="list" id="submenu-support" aria-expanded="false">
+          <ul class="flex-column nav">
+            <li class="nav-item"><a href="#" class="nav-link"><span class="sidebar-icon"><i class="fa-solid fa-envelope"></i></span> <span class="sidebar-text">Email</span></a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="sidebar-icon"><i class="fa-brands fa-whatsapp"></i></span> <span class="sidebar-text">Whatsapp</span></a></li>
+          </ul>
+        </div>
+      </li>
+
 
 
 

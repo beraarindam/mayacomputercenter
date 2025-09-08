@@ -93,13 +93,13 @@ body {
         <!-- Profile Card -->
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card-profile">
-                <img src="{{ asset('center/student_doc/'.$data->sl_photo ?? '') }}" alt="Student Photo">
+                <img src="{{ asset('storage/').'/'.$data->sl_photo }}" alt="Student Photo">
                 <h5>{{ $data->sl_name }}</h5>
                 <p class="text-muted mb-1">{{ $data->sl_reg_no }}</p>
                 <span class="badge-course">{{ $data->c_short_name }}</span>
                 <p class="small mt-2">{{ $data->c_full_name }}</p>
                 <div class="mt-3 text-muted">
-                    <i class="fa fa-birthday-cake me-2 text-danger"></i> 13-Feb-1997
+                    <i class="fa fa-birthday-cake me-2 text-danger"></i> {{$data->sl_dob}}
                 </div>
             </div>
         </div>

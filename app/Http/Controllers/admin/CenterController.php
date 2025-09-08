@@ -83,10 +83,12 @@ class CenterController extends Controller
             'cl_center_stamp'       => $center_stamp,
             'cl_center_signature'   => $center_signature,
             'cl_director_adhar'     => $director_adhar,
+            'cl_wallet_balance'     => $request->cl_wallet_balance,
             'cl_director_pan'       => $director_pan,
             'cl_director_education' => $request->director_education,
             'cl_mobile'             => $request->center_mobile,
             'password'              => Hash::make($request->center_mobile),
+            'cl_account_status'     => 'APPROVED',
             'cl_email'              => $request->center_email,
         ];
 
@@ -164,6 +166,7 @@ class CenterController extends Controller
             'cl_center_signature'   => $center_signature,
             'cl_director_adhar'     => $director_adhar,
             'cl_director_pan'       => $director_pan,
+            'cl_wallet_balance'     => $request->cl_wallet_balance,
             'cl_director_education' => $request->director_education,
             'cl_mobile'             => $request->center_mobile,
             'password'             => Hash::make($request->center_mobile),
@@ -218,6 +221,6 @@ class CenterController extends Controller
     
     public function center_certificate($id){
         $center = Center::where('cl_id',$id)->first();
-        return view('admin.center.center_certificate', compact('center'));
+        return view('center_certificate', compact('center'));
     }
 }

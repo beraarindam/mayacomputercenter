@@ -20,6 +20,7 @@ class Center extends Authenticatable
         'cl_cin_no',
     	'cl_name',
     	'cl_photo',
+        'cl_wallet_balance',
         'cl_authorized_signature',
         'cl_logo',
         'cl_center_stamp',
@@ -29,6 +30,7 @@ class Center extends Authenticatable
         'cl_director_education',
     	'cl_mobile',
     	'cl_email',
+        'cl_account_status',
     	'password'
     ];
 

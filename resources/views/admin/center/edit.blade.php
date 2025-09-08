@@ -132,6 +132,12 @@
                                     value="{{ old('director_education', $data->cl_director_education ?? '') }}">
                             </div>
                         </div>
+                        <div class="col-lg-4 mb-3">
+					        <div class="form-group mb-3">
+    							<label>Center Payment Amount</label>
+    							<input required class="form-control" placeholder="Center Payment Amount"  type='text' name="cl_wallet_balance"  value="{{ old('cl_wallet_balance', $data->cl_wallet_balance ?? '') }}">
+						    </div>
+					    </div>
                     </div>
                 </div>
                 <!-- end card body -->

@@ -33,38 +33,32 @@ class StudentController extends Controller
 	public function add_student_now(Request $request)
 	{
 		$student_reg_fee = StudentRegFee::first();
-		$center = Center::where('cl_id', Auth::guard('center')->user()->cl_id)->first();
+		$center = Center::where('cl_id', $request->center_id)->first();
 
-		// if($center->cl_wallet_balance < $student_reg_fee->srf_amount):
-		//     return back()->with('error', 'Your Balance Is Low. Please Recharge');
-		// endif;
+		// Initialize variables (avoid undefined index error)
+		$student_photo = null;
+		$student_id_card = null;
+		$student_educational_certificate = null;
 
-		if ($request->hasFile('student_photo')):
-			$image = $request->file('student_photo');
-			$file = time() . '_' . $image->getClientOriginalName();
-			$image->move('center/student_doc', $file);
-			$data['sl_photo'] = $file;
-			$student_photo = $file;
-		endif;
+		// Save Student Photo
+		if ($request->hasFile('student_photo')) {
+			$student_photo = $request->file('student_photo')->store('student', 'public');
+		}
 
-		if ($request->hasFile('student_id_card')):
-			$image = $request->file('student_id_card');
-			$file = time() . '_' . $image->getClientOriginalName();
-			$image->move('center/student_doc', $file);
-			$data['sl_id_card'] = $file;
-			$student_id_card = $file;
-		endif;
+		// Save Student ID Card
+		if ($request->hasFile('student_id_card')) {
+			$student_id_card = $request->file('student_id_card')->store('student', 'public');
+		}
 
-		if ($request->hasFile('student_educational_certificate')):
-			$image = $request->file('student_educational_certificate');
-			$file = time() . '_' . $image->getClientOriginalName();
-			$image->move('center/student_doc', $file);
-			$data['sl_educational_certificate'] = $file;
-			$student_educational_certificate = $file;
-		endif;
+		// Save Student Educational Certificate
+		if ($request->hasFile('student_educational_certificate')) {
+			$student_educational_certificate = $request->file('student_educational_certificate')->store('student', 'public');
+		}
+
+		// Prepare Data
 		$data = [
 			'sl_FK_of_course_id' => $request->course_id,
-			'sl_FK_of_center_id' => $request->centerId,
+			'sl_FK_of_center_id' => $request->center_id,
 			'sl_dob' => $request->date_of_birth,
 			'sl_qualification' => $request->student_qualification,
 			'sl_reg_no' => $request->student_roll,
@@ -75,33 +69,31 @@ class StudentController extends Controller
 			'sl_id_card' => $student_id_card,
 			'sl_mother_name' => $request->student_mother,
 			'sl_mobile_no' => $request->student_mobile,
-			'password' => $request->student_mobile,
+			'password' => Hash::make($request->student_mobile),
 			'sl_father_name' => $request->student_father,
 			'sl_educational_certificate' => $student_educational_certificate,
 			'sl_email' => $request->student_email,
 			'sl_status' => 'PENDING',
 		];
 
+		// Insert Student
 		$insert = Student::create($data);
-		$add_transaction = DB::table('transaction')->insert([
+
+		// Add Transaction
+		DB::table('transaction')->insert([
 			't_student_reg_no' => $insert->sl_reg_no,
-			't_FK_of_center_id' => Auth::guard('center')->user()->cl_id,
+			't_FK_of_center_id' => $request->center_id,
 			't_amount' => $student_reg_fee->srf_amount
 		]);
 
-
-		$update = Center::where('cl_id', Auth::guard('center')->user()->cl_id)->update([
+		// Update Wallet Balance
+		Center::where('cl_id', $request->center_id)->update([
 			'cl_wallet_balance' => $center->cl_wallet_balance - $student_reg_fee->srf_amount,
 		]);
 
-		return back()->with('success', 'Student Registration Successfully!');
-
-		// if($insert):
-		// 	return back()->with('success', 'Student Registration Successfully!');
-		// else:
-		// 	return back()->with('error', 'Something Went Wrong!');
-		// endif;
+		return redirect()->route('student_list')->with('success', 'Student Registration Successfully!');
 	}
+
 
 
 	public function get_reg_no(Request $request)

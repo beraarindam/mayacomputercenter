@@ -42,7 +42,7 @@
 					            <th>Center Address</th>
 					            <th>Email</th>
 					            <th>Mobile</th>
-					            <th>Image</th>
+					            <th>Balance</th>
 					            <th>Account Status</th>
 					            <th>Action</th>
 					        </tr>
@@ -57,9 +57,7 @@
 				        			<td>{{ $data->cl_center_address}}</td>
 				        			<td>{{ $data->cl_email}}</td>
 				        			<td>{{ $data->cl_mobile}}</td>
-				        			<td>
-				        				<img style="width: 47px;" src="{{ asset('storage/'.$data->cl_photo) }}">
-				        			</td>
+				        			<td>{{ $data->cl_wallet_balance}}</td>
 				        			<td>
 				        			    {{ $data->cl_account_status }}
 				        			</td>

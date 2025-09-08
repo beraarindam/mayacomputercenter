@@ -22,43 +22,43 @@
 					<div class='row'>
 						{{-- <div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Code</label>
+								<label>Center Code <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Center Code"  type='number' name='center_code'>
 							</div>
 						</div> --}}
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Name</label>
+								<label>Center Name <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Center Name" type='text' name='center_name'>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Director Name</label>
+								<label>Center Director Name <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Director Name"  type='text' name='director_name'>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Address</label>
+								<label>Center Address <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Address"  type='text' name='center_address'>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Email</label>
+								<label>Center Email <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Email"  type='email' name='center_email'>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Center Mobile</label>
+								<label>Center Mobile <span class="text-danger">*</span></label>
 								<input required class="form-control" placeholder="Mobile"  type='number' name='center_mobile'>
 							</div>
 						</div>
 						<div class="col-md-4 mb-3">
 							<div class="form-group mb-3">
-								<label>Photo</label>
+								<label>Photo <span class="text-danger">*</span></label>
 								<input required class="form-control"  type='file' name='photo'>
 							</div>
 						</div>
@@ -71,32 +71,38 @@
 					<div class="row">
 					    <div class="col-lg-4 mb-3">
 					        <div class="form-group mb-3">
-    							<label>Center Stamp</label>
+    							<label>Center Stamp <span class="text-danger">*</span></label>
     							<input required class="form-control"  type='file' name='center_stamp'>
 						    </div>
 					    </div>
 					    <div class="col-lg-4 mb-3">
 					        <div class="form-group mb-3">
-    							<label>Center Signature</label>
+    							<label>Center Signature <span class="text-danger">*</span></label>
     							<input required class="form-control"  type='file' name='center_signature'>
 						    </div>
 					    </div>
 					    <div class="col-lg-4 mb-3">
 					        <div class="form-group mb-3">
-    							<label>Director Adhar Card</label>
+    							<label>Director Adhar Card <span class="text-danger">*</span></label>
     							<input required class="form-control"  type='file' name='director_adhar'>
 						    </div>
 					    </div>
 					    <div class="col-lg-4 mb-3">
 					        <div class="form-group mb-3">
-    							<label>Director PAN Card</label>
+    							<label>Director PAN Card <span class="text-danger">*</span></label>
     							<input required class="form-control"  type='file' name='director_pan'>
 						    </div>
 					    </div>
 					    <div class="col-lg-4 mb-3">
 					        <div class="form-group mb-3">
-    							<label>Director Education</label>
+    							<label>Director Education <span class="text-danger">*</span></label>
     							<input required class="form-control" placeholder="Director Education"  type='text' name='director_education'>
+						    </div>
+					    </div>
+						<div class="col-lg-4 mb-3">
+					        <div class="form-group mb-3">
+    							<label>Center Payment Amount</label>
+    							<input required class="form-control" placeholder="Center Payment Amount"  type='text' name='cl_wallet_balance'>
 						    </div>
 					    </div>
 					</div>

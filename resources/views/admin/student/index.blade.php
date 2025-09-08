@@ -56,7 +56,7 @@
 				        			<td>{{ $data->sl_reg_no }}</td>
 				        			<td><a href="{{ route('student_application_view', $data->sl_id) }}" target="__blank">{{ $data->sl_name }}</a></td>
 				        			<td>
-				        				<img style="width: 35px;height: 37px;" src="{{ asset('center/student_doc/').'/'.$data->sl_photo }}">
+				        				<img style="width: 35px;height: 37px;" src="{{ asset('storage/').'/'.$data->sl_photo }}">
 				        			</td>
 				        			<td>{{ date($data->sl_dob,strtotime(date('Y-m-d'))) }}</td>
 				        			<td>{{ $data->c_short_name }}</td>

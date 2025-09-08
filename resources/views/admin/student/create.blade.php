@@ -15,15 +15,15 @@
 					Student Registration
 					<span class='float-right' style='float:right'>
 						<a href="{{ route('student_list') }}">  <button class="btn btn-dark btn-sm" > View All </button></a>
-					<button class="btn btn-success btn-sm" id="update_btn" accesskey="s"> SAVE </button>                                    </span>
+					<button class="btn btn-success btn-sm" id="update_btn" accesskey="s"> SAVE </button></span>
 				</div>
 				<div class="card-body"> 
 					<div class='row'>
 						<div class="col-md-4 mb-3">
 							<!--<input type='hidden' name='status' value='PENDING'>-->
-							<input type='hidden' value ='5' name='center_id'>
 							<div class="form-group mb-3">
-								<select onchange="get_reg_no(this.value);" class="form-select select2" name='centerId' id='center_id'  required   >
+								<label>Select Center  <span class="text-danger">*</span></label>
+								<select onchange="get_reg_no(this.value);" class="form-select select2" name='center_id' id='center_id'  required >
 									<option value=''> Select Center </option>
 									@foreach($center as $data)
 										<option value="{{ $data->cl_id }}">{{ $data->cl_name }} [{{ $data->cl_code }}]</option>
@@ -32,7 +32,7 @@
 								
 							</div>
 								<div class="form-group mb-3">
-								<label>Select Course Name  <span class='badge bg-success' id='course_data' style='display:none'> </span></label>
+								<label>Select Course Name  <span class='badge bg-success' id='course_data' style='display:none'></span></label>
 								<select onchange="get_course(this.value);" class="form-select select2" name='course_id' id='course_id'  required   >
 									<option value=''> Select Course </option>
 									@foreach($course as $data)
@@ -43,23 +43,21 @@
 							</div>
 							<div class="form-group mb-3">
 								<label> Reg. No.
-									<span >
-									   
-									 </span>
+									<span class="text-danger">*</span>
 									<span class='badge bg-success' id='rollNo'></span>
 								</label>
 								<input class="form-control" type='number' id='student_roll' placeholder="Center Code With 4 Digit No" name='student_roll' value='' minlength='4' maxlength='4' required>
 							</div>
 							<div class="form-group mb-3">
-								<label>Enter Student Name</label>
+								<label>Enter Student Name <span class="text-danger">*</span></label>
 								<input class="form-control cp" placeholder="Student Name Here" name='student_name' value='' required>
 							</div>
 							<div class="form-group mb-3">
-								<label>Enter Mother's Name</label>
-								<input class="form-control cp" placeholder="Mother's Name" name='student_mother' value='' >
+								<label>Enter Mother's Name <span class="text-danger">*</span></label>
+								<input class="form-control cp" placeholder="Mother's Name" name='student_mother' value='' required>
 							</div>
 							<div class="form-group mb-3">
-								<label>Enter Father's Name</label>
+								<label>Enter Father's Name <span class="text-danger">*</span></label>
 								<input class="form-control cp" placeholder="Father's Name" name='student_father' value='' required>
 							</div>
 							
@@ -68,11 +66,11 @@
 						<div class="col-md-4 mb-3">
 							
 							<div class="form-group mb-3">
-								<label>Date of Birth</label>
-								<input class="form-control"  type='date' name='date_of_birth' max='2015-01-01' value=''>
+								<label>Date of Birth <span class="text-danger">*</span></label>
+								<input class="form-control"  type='date' name='date_of_birth' max='2015-01-01' value='' required>
 							</div>
 							<div class="form-group mb-3">
-								<label>Select Sex</label>
+								<label>Select Sex <span class="text-danger">*</span></label>
 								<select class="form-select" name='student_sex' required>
 									<option value='' selected></option>
 									<option value='MALE' >MALE</option>
@@ -82,25 +80,25 @@
 							</div>
 							
 							<div class="form-group mb-3">
-								<label>Address </label>
-								<textarea class="form-control cp" rows="3" name='student_address'></textarea>
+								<label>Address <span class="text-danger">*</span></label>
+								<textarea class="form-control cp" rows="3" name='student_address' required></textarea>
 							</div>
 							
 							
 							<div class="form-group mb-3">
-								<label>Enter Mobile No.  </label>
+								<label>Enter Mobile No. <span class="text-danger">*</span></label>
 								<input class="form-control"  type='number' minlength='10' name='student_mobile' maxlength='10' value='' required>
 							</div>
 							<div class="form-group mb-3">
-								<label>Enter Email Id. </label>
+								<label>Enter Email Id. <span class="text-danger">*</span></label>
 								<input class="form-control" placeholder="someone@email.com" name='student_email' type='email' value='' >
 							</div>
 							<input type='hidden' name='status' value='PENDING'>
 						</div>
 						<div class="col-md-4 ">
 							<div class="form-group mb-3">
-								<label>Select Qualification </label>
-								<select class="form-select select2 " name='student_qualification'>
+								<label>Select Qualification <span class="text-danger">*</span></label>
+								<select class="form-select select2 " name='student_qualification' required>
 									<option value='' selected></option>
 									<option value='Non Matric' >Non Matric</option>
 									<option value='Matric' >Matric</option>
@@ -110,21 +108,21 @@
 								</select>
 							</div>
 							<div class="form-group mb-3">
-								<label>Upload Photograph</label>
-								<input class="form-control" type='file' name='student_photo' id='uploadimg' accept='image'>
+								<label>Upload Photograph <span class="text-danger">*</span></label>
+								<input class="form-control" type='file' name='student_photo' id='uploadimg' accept='image' required>
 							</div>
 							
 		
 							<div class="form-group mb-3">
-								<label>Upload Identity Card </label><br>
-								<input class="form-control" type='file' name='student_id_card' id='upload_id_proof' accept='image'>
+								<label>Upload Identity Card <span class="text-danger">*</span></label><br>
+								<input class="form-control" type='file' name='student_id_card' id='upload_id_proof' accept='image' required>
 								<br><small> Scan copy of VIC, Aadhar, PAN, DL etc. </small>
 							</div>
 		
 					
 							<div class="form-group mb-3">
-								<label>Upload Educational Certificate</label>
-								<input class="form-control" type='file' name='student_educational_certificate' id='upload_edu_proof' accept='image'>
+								<label>Upload Educational Certificate <span class="text-danger">*</span></label>
+								<input class="form-control" type='file' name='student_educational_certificate' id='upload_edu_proof' accept='image' required>
 								<br><small> Marks Sheet, Certificate etc.</small>
 							</div>
 						</form>
